@@ -24,6 +24,7 @@ function inicializarElementos() {
   inputPiezas = document.getElementById("inputPiezas");
   inputNombreUsuario = document.getElementById("inputNombreUsuario");
   limpiarRegistros = document.getElementById("limpiarRegistros")
+  limpiarRegistros.onclick = eliminarLocal
   recargarPagina = document.getElementById("recargarPag")
   tabla = document.getElementById("tablaProductos");
 }
@@ -33,6 +34,13 @@ function inicializarEventos() {
 }
 
 function validarFormulario(event) {
+  Swal.fire({
+    icon: 'success',
+    title: 'Modificacion cargada',
+    text: 'La modificacion ha sido cargada con exito',
+    showConfirmButton: false,
+    timer: '5500'
+  })
   event.preventDefault();
   let tipoRep = inputTipoReparacion.value;
   let zonaRep = inputZonaReparacion.value;
@@ -56,6 +64,7 @@ function agregarProductosTabla() {
       <td>${producto.piezas}</td>
       <td>${producto.nombre}</td>`;
     tabla.tBodies[0].append(filaTabla);
+    
   });
 }
 
@@ -77,7 +86,11 @@ function obtenerProductosLocalStorage() {
 }
 
 function eliminarLocal(){
-  limpiarRegistros.onclick = () => localStorage.clear()
+  Swal.fire({
+    icon: 'error',
+    title: 'Productos eliminados',
+    text: 'Recargue la pagina para visualizar los cambios'})
+  localStorage.clear()
 }
 
 function recargar(){
@@ -89,7 +102,6 @@ function main(){
   inicializarEventos();
   obtenerProductosLocalStorage();
   agregarProductosTabla();
-  eliminarLocal()
   recargar()
 }
 
