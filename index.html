@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Historial Mecanico Automovilistico </title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Historial Mecanico Automovilistico</h3>
+          <form id="formulario">
+            <div class="mb-3">
+              <label class="form-label">Tipo de reparacion</label>
+              <input type="text" class="form-control" id="inputTipoReparacion"/>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Zona de reparacion</label>
+              <input type="text" class="form-control" id="inputZonaReparacion"/>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Pieza/s a reparar</label>
+              <input type="text" class="form-control" id="inputPiezas" />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Nombre Usuario </label>
+              <input type="text" class="form-control" id="inputNombreUsuario" />
+            </div>
+
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary">Registrar</button>
+            </div>
+            <hr>
+          </form>
+          <div class="d-grid gap-2">
+            <button type="button" class="btn btn-danger" id="limpiarRegistros">limpiar Registro</button>
+          </div>
+          <hr>
+          <div class="d-grid gap-2">
+            <button type="button" class="btn btn-warning" id="recargarPag">Recargar Pagina</button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <table id="tablaProductos" class="table table-striped table-hover">
+              <thead>
+              <tr>
+                  <td>Tipo de reparacion</td>
+                  <td>Zona de reparacion</td>
+                  <td>Pieza/s a reparar</td>
+                  <td>Nombre Usuario</td>
+              </tr>
+              </th>
+              <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>
