@@ -25,7 +25,6 @@ function inicializarElementos() {
   inputNombreUsuario = document.getElementById("inputNombreUsuario");
   limpiarRegistros = document.getElementById("limpiarRegistros")
   limpiarRegistros.onclick = eliminarLocal
-  recargarPagina = document.getElementById("recargarPag")
   tabla = document.getElementById("tablaProductos");
 }
 
@@ -39,6 +38,7 @@ function validarFormulario(event) {
     title: 'Modificacion cargada',
     text: 'La modificacion ha sido cargada con exito',
     showConfirmButton: false,
+    color : '#FFFFFF',
     timer: '5500'
   })
   event.preventDefault();
@@ -87,14 +87,20 @@ function obtenerProductosLocalStorage() {
 
 function eliminarLocal(){
   Swal.fire({
-    icon: 'error',
-    title: 'Productos eliminados',
-    text: 'Recargue la pagina para visualizar los cambios'})
-  localStorage.clear()
-}
-
-function recargar(){
-  recargarPagina.onclick = () => location.reload()
+    title: 'Estas seguro?',
+    text: "No podras revertir estos cambios y al aceptar se recargara la pagina",
+    icon: 'warning',
+    color : '#FFFFFF',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'SI, ELIMINAR'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      localStorage.clear()
+      location.reload()
+    }
+  })
 }
 
 function main(){
@@ -102,7 +108,6 @@ function main(){
   inicializarEventos();
   obtenerProductosLocalStorage();
   agregarProductosTabla();
-  recargar()
 }
 
 main();
